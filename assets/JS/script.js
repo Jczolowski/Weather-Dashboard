@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+    //array of cities
+    const cities = ["Denver", "Miami", "San Diego", "Dallas", "New Orleans", "Boston"];
+
+
     //on click
     $("#search-btn").on("click", function() {
 
@@ -10,6 +14,9 @@ $(document).ready(function() {
     //call search weather function
     searchWeather(searchValue);
     })
+
+    //render new button
+    renderButtons();
 
     //function to search for current weather
     function searchWeather (cityName){
@@ -127,7 +134,7 @@ $(document).ready(function() {
 
 
                         //loop over all forecasts
-                        for(var i = 0; i< response.list.length; i+=8 {
+                        for(var i = 0; i< response.list.length; i+=8) {
 
                     
                         //create column
@@ -169,6 +176,28 @@ $(document).ready(function() {
                             }
                         })
                      }
+
+                     function renderButtons() {
+
+                        $(".cities").empty();
+
+                         for(let i = 0; i < cities.length; i++){
+                             
+                        //create list item
+                        const listItem = $("<li>").addClass("current-city list-group-item list-group-item-action").attr("data-city", cities[i]).text(cities[i]);
+                        $(".cities").appened(listItem);
+
+                         }
+                     }
+
+                     $(document).on("click", ".current-city" , function(){
+                         
+                     })
+
+                     //on page load
+                     renderButtons();
+
+
                     
                 })
 
