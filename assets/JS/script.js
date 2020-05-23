@@ -193,6 +193,7 @@ $(document).ready(function(){
 
                             //get city name from the one clicked
                             const cityName = $(this).attr("data-city");
+                            searchWeather(cityName);
 
 
                                 
